@@ -3,6 +3,7 @@ class Movie < ActiveRecord::Base
   # we don't need the line below because we're
   # implementing our own
   # include Elasticsearch::Model::Callbacks
+  self.primary_key = "id"
 
   after_commit  :index_document,  on: [:create, :update]
   after_commit  :delete_document, on: :destroy
