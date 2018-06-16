@@ -1,4 +1,4 @@
-class Crew < ActiveRecord::Base
+class Crew < ApplicationRecord
   has_many :roles
   has_many :movies, through: :roles
 

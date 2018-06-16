@@ -1,7 +1,7 @@
 class MoviesController < ApplicationController
   include Refiner::Query
   
-  before_filter :beautify_search_url, only: [:index]
+  before_action :beautify_search_url, only: [:index]
 
   def index
     search  = Movie.custom_search(segmented_query)

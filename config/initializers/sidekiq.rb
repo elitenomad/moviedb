@@ -21,7 +21,7 @@ end
 Sidekiq.configure_server do |config|
   config.redis = ConnectionPool.new(size: Sidekiq.options[:concurrency] + 4, timeout: 1, &REDIS_CONN)
 
-  config.server_middleware do |chain|
-    chain.remove Sidekiq::Middleware::Server::RetryJobs
-  end
+  # config.server_middleware do |chain|
+  #   chain.remove Sidekiq::Middleware::Server::RetryJobs
+  # end
 end

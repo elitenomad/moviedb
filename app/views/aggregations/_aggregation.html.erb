@@ -2,8 +2,8 @@
 <ul class='nav nav-pills nav-stacked'>
   <% agg.buckets.each do |bucket| %>
     <%= content_tag :li, class: refiner_active?(agg.kind, bucket.id) do %>
-      <%= link_to refiner_path(agg.kind, bucket.id, :merge, 
-                               search: 'search_movies_path', 
+      <%= link_to refiner_path(agg.kind, bucket.id, :merge,
+                               search: 'search_movies_path',
                                fallback: 'movies_path') do %>
         <%= bucket.name %> (<%= bucket.count %>)
       <% end %>

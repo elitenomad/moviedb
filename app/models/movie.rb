@@ -1,9 +1,8 @@
-class Movie < ActiveRecord::Base
+class Movie < ApplicationRecord
   include Elasticsearch::Model
   # we don't need the line below because we're
   # implementing our own
   # include Elasticsearch::Model::Callbacks
-  self.primary_key = "id"
 
   after_commit  :index_document,  on: [:create, :update]
   after_commit  :delete_document, on: :destroy
@@ -53,12 +52,12 @@ class Movie < ActiveRecord::Base
   
   class << self
     def custom_search(query_segment)
-      # { "keyword" => "Terminator", "crews" => "1,27", "genres" => "2332, 2323"}
+      query_segment = { "keyword" => "Terminator", "crews" => "1,27", "genres" => "2332, 2323"}
       keyword         = query_segment.delete("keyword")
       filter_segments = query_segment
 
       __elasticsearch__.search(query:  MoviesQuery.build(keyword),
-                               aggs:   MoviesQuery::Aggregate.build, 
+                               aggs:   MoviesQuery::Aggregate.build,
                                filter: MoviesQuery::Filter.build(filter_segments))
     end
   end

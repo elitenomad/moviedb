@@ -25,6 +25,22 @@ module Moviedb
     config.active_job.queue_adapter = :sidekiq
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
-    config.active_record.raise_in_transactional_callbacks = true
+    # config.active_record.raise_in_transactional_callbacks = true
+
+    #Preserve Timezone of the Receiver
+    # ActiveSupport.to_time_preserves_timezone = false
+    #
+    config.active_record.dump_schemas = :all
+
+    #Support Fragment Caching in Action Mailer Views
+    config.action_mailer.perform_caching = true
+
+    #  Allow Configuration of Action Mailer Queue Name
+    config.action_mailer.deliver_later_queue_name = :moviedb
+
+    config.action_controller.forgery_protection_origin_check = true
+
+    # By default belongs_to association is mandatory
+    config.active_record.belongs_to_required_by_default = true
   end
 end
