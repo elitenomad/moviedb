@@ -1,3 +1,14 @@
+GIT
+  remote: git://github.com/elastic/elasticsearch-rails.git
+  revision: e1fc0e6df0b85d2eb65df1dec1459fc1da980dc8
+  branch: master
+  specs:
+    elasticsearch-model (6.0.0.alpha1)
+      activesupport (> 3)
+      elasticsearch (> 1)
+      hashie
+    elasticsearch-rails (6.0.0.alpha1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -52,6 +63,7 @@ GEM
     arel (9.0.0)
     autoprefixer-rails (8.6.2)
       execjs
+    awesome_print (1.8.0)
     bindex (0.5.0)
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
@@ -69,17 +81,12 @@ GEM
     concurrent-ruby (1.0.5)
     connection_pool (2.2.2)
     crass (1.0.4)
-    elasticsearch (5.0.5)
-      elasticsearch-api (= 5.0.5)
-      elasticsearch-transport (= 5.0.5)
-    elasticsearch-api (5.0.5)
+    elasticsearch (6.1.0)
+      elasticsearch-api (= 6.1.0)
+      elasticsearch-transport (= 6.1.0)
+    elasticsearch-api (6.1.0)
       multi_json
-    elasticsearch-model (5.0.2)
-      activesupport (> 3)
-      elasticsearch (~> 5)
-      hashie
-    elasticsearch-rails (5.0.2)
-    elasticsearch-transport (5.0.5)
+    elasticsearch-transport (6.1.0)
       faraday
       multi_json
     erubi (1.7.1)
@@ -222,11 +229,12 @@ PLATFORMS
 DEPENDENCIES
   activemodel-serializers-xml
   activerecord-nulldb-adapter
+  awesome_print
   bootstrap-sass
   byebug
   coffee-rails
-  elasticsearch-model
-  elasticsearch-rails
+  elasticsearch-model!
+  elasticsearch-rails!
   jbuilder
   jquery-rails
   minitest-reporters

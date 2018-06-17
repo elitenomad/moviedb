@@ -5,7 +5,7 @@ class MoviesController < ApplicationController
 
   def index
     search  = Movie.custom_search(segmented_query)
-    @aggs   = search.response.aggregations.map { |a| AggregationPresenter.new(a) }
+    # @aggs   = search.response.aggregations.map { |a| AggregationPresenter.new(a) }
     @movies = search.results
   end
 

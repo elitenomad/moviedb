@@ -29,8 +29,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'redis'
 gem 'redis-namespace'
 
-gem 'elasticsearch-rails'
-gem 'elasticsearch-model'
+gem 'elasticsearch-model', github: 'elastic/elasticsearch-rails', branch: 'master'
+gem 'elasticsearch-rails', github: 'elastic/elasticsearch-rails', branch: 'master'
 gem 'bootstrap-sass'
 gem 'sidekiq'
 gem 'refiner'
@@ -43,6 +43,7 @@ end
 
 group :development do
   gem 'web-console','~> 3.5.1'
+  gem 'awesome_print'
 end
 
 # Use ActiveModel has_secure_password
